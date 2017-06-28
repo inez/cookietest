@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.js"
+      integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+      crossorigin="anonymous"></script>
+    <script>
+$(function() {
+  $('#setCookie').click(function() {
+    $.ajax({
+      method: "POST",
+      url: "http://subdomain.localtest.me:3000/set",
+      data: { name: "John", location: "Boston" },
+      // Important - also looks for corresponding headers in index.js
+      xhrFields: {
+        withCredentials: true
+      },
+    })
+      .done(function( msg ) {
+        window.location.href = "http://subdomain.localtest.me:3000/checkcookie";
+      });
+    });
+});
+    </script>
+  </head>
+  <body>
+    <input type="button" id="setCookie" value="Set Cookie" />
+    <br/>
+    <a href="http://subdomain.localtest.me:3000/checkcookie">Subdomain</a>
+  </body>
+</html>
