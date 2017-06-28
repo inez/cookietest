@@ -6,7 +6,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/set', function (req, res) {
-	// Important - also looks for corresponding code in index.html
+  // Important - also looks for corresponding code in index.html
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Origin', 'http://localtest.me:3000');
   res.cookie('cookieName', 'cookieNameValue', { maxAge: 10000000, httpOnly: false });
